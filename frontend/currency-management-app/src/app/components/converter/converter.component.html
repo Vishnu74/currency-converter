@@ -1,54 +1,57 @@
 <div class="max-w-6xl mx-auto space-y-12">
 
-    <section class="bg-white rounded-2xl shadow p-6">
+    <section class="bg-gradient-to-r from-slate-50 to-blue-50 rounded-2xl shadow p-6 border border-blue-100">
 
-        <h2 class="text-lg font-semibold mb-4">
+        <h2 class="text-lg font-semibold mb-4 text-blue-700">
             Currency Converter
         </h2>
 
         <form [formGroup]="form" class="grid grid-cols-12 gap-4 items-start">
 
             <div class="col-span-5">
-                <label class="block mb-2 text-sm font-medium text-gray-600">From</label>
+                <label class="block mb-2 text-sm font-medium text-blue-700">From</label>
 
-                <div class="border rounded-xl h-[64px] px-4 flex items-center gap-4 bg-white">
+                <div class="border border-blue-200 rounded-xl h-[64px] px-4 flex items-center gap-4 bg-white">
                     <input type="number" formControlName="amount"
-                        class="w-[180px] text-2xl font-semibold outline-none bg-transparent" />
+                        class="w-[180px] text-2xl font-semibold outline-none bg-transparent text-slate-800" />
 
-                    <div class="h-8 w-px bg-gray-300"></div>
+                    <div class="h-8 w-px bg-blue-200"></div>
 
                     <div class="relative w-[220px]">
-                        <select formControlName="from" class="w-full appearance-none pr-8 truncate">
+                        <select formControlName="from" class="w-full appearance-none pr-8 truncate text-slate-700">
                             <option *ngFor="let c of currencies" [value]="c.value">
                                 {{ c.label }}
                             </option>
                         </select>
-                        <span class="absolute right-2 top-1/2 -translate-y-1/2 text-gray-600">▾</span>
+                        <span class="absolute right-2 top-1/2 -translate-y-1/2 text-blue-600">▾</span>
                     </div>
                 </div>
             </div>
 
-            <div class="col-span-1 flex justify-center items-end text-2xl cursor-pointer mt-8" (click)="swap()">
-                ⇄
+            <div class="col-span-1 flex justify-center items-end mt-8">
+                <button type="button" (click)="swap()"
+                    class="h-10 w-10 rounded-full bg-blue-600 text-white text-xl shadow hover:bg-blue-700 transition-colors">
+                    ⇄
+                </button>
             </div>
 
             <div class="col-span-6">
-                <label class="block mb-2 text-sm font-medium text-gray-600">To</label>
+                <label class="block mb-2 text-sm font-medium text-blue-700">To</label>
 
-                <div class="border rounded-xl h-[64px] px-4 flex items-center gap-4 bg-white">
-                    <span class="flex-1 text-2xl font-semibold">
+                <div class="border border-blue-200 rounded-xl h-[64px] px-4 flex items-center gap-4 bg-white">
+                    <span class="flex-1 text-2xl font-semibold text-blue-700">
                         {{ result | number:'1.2-2' }}
                     </span>
 
-                    <div class="h-8 w-px bg-gray-300"></div>
+                    <div class="h-8 w-px bg-blue-200"></div>
 
                     <div class="relative w-[220px]">
-                        <select formControlName="to" class="w-full appearance-none pr-8 truncate">
+                        <select formControlName="to" class="w-full appearance-none pr-8 truncate text-slate-700">
                             <option *ngFor="let c of currencies" [value]="c.value">
                                 {{ c.label }}
                             </option>
                         </select>
-                        <span class="absolute right-2 top-1/2 -translate-y-1/2 text-gray-600">▾</span>
+                        <span class="absolute right-2 top-1/2 -translate-y-1/2 text-blue-600">▾</span>
                     </div>
                 </div>
             </div>
@@ -56,7 +59,7 @@
         </form>
     </section>
 
-    <div class="border-t border-gray-200"></div>
+    <div class="border-t border-blue-100"></div>
 
 
     <section>
